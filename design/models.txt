@@ -1,0 +1,111 @@
+LIBRARY SYSTEM - CLASSES AND FIELDS
+===================================
+
+PEOPLE
+------
+User
+  userId: long
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  passwordHash: String
+
+Student 
+  studentNumber: String
+  status: MemberStatus
+  registeredOn: Date
+
+Staff
+  employeeNumber: String
+  role: StaffRole
+  hiredOn: Date
+
+
+CATALOGUE
+---------
+Book
+  isbn: String
+  title: String
+  edition: String
+  publisher: String
+  publicationYear: int
+
+BookCopy
+  copyId: long
+  barcode: String
+  status: CopyStatus
+  condition: CopyCondition
+  shelfLocation: String
+  acquiredOn: Date
+
+Author
+  authorId: long
+  name: String
+
+Category
+  categoryId: long
+  name: String
+
+
+TRANSACTIONS
+------------
+Loan
+  loanId: long
+  requestedOn: Date
+  pickupBy: Date       
+  issuedOn: Date       
+  dueOn: Date            
+  returnedOn: Date        
+  renewalCount: int
+  status: LoanStatus
+
+Reservation
+  reservationId: long
+  reservedOn: Date
+  expiresOn: Date
+  status: ReservationStatus
+
+Fine
+  fineId: long
+  amount: decimal
+  reason: FineReason
+  issuedOn: Date
+  status: FineStatus
+
+Payment 
+  paymentId: long
+  amount: decimal
+  paidOn: Date
+  reference: String
+
+
+SERVICE
+--------------------------------------------
+Library
+  name: String
+  address: String
+  loanPeriodDays: int
+  maxLoansPerStudent: int
+  finePerDay: decimal
+
+ENUMS
+-----
+MemberStatus: ACTIVE, SUSPENDED
+StaffRole: EMPLOYEE, ADMIN
+CopyStatus: AVAILABLE, ON_LOAN, RESERVED, LOST, DAMAGED   (RESERVED = held for a pickup or reservation)
+CopyCondition: (to be decided, e.g. GOOD, WORN, DAMAGED)
+LoanStatus: REQUESTED, ACTIVE, RETURNED, OVERDUE, LOST, CANCELLED, EXPIRED
+ReservationStatus: PENDING, READY, FULFILLED, EXPIRED, CANCELLED
+FineReason: OVERDUE, DAMAGED, LOST
+FineStatus: UNPAID, PARTIALLY_PAID, PAID, WAIVED
+
+
+BUSINESS RULES
+-----------------------------
+- Students log in, see availability, reserve, request loans and pay fines.
+- Borrowing: student requests a loan, staff confirm at pickup (REQUESTED -> ACTIVE).
+- Returns are processed by staff.
+- Unpaid fines (UNPAID or PARTIALLY_PAID) block new loan requests.
+- Fine payment is simulated: student clicks "pay", the system records a Payment.
+- Single library, H2 database for now.

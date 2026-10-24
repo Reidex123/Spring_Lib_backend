@@ -1,9 +1,167 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Landing Page</title>
-    </head>
-    <body>
-        <h1>Spring Application</h1>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">Library<span>System</span></a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#staff">For staff</a>
+        <a href="/login" class="btn btn-small">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Your library, online</p>
+          <h1>Find, reserve and borrow books in one place.</h1>
+          <p class="lead">See what is on the shelf, request a loan, keep track of due dates and clear fines without standing in a queue.</p>
+          <div class="hero-actions">
+            <a href="/login" class="btn">Log in</a>
+            <a href="#how-it-works" class="btn btn-outline">How it works</a>
+          </div>
+        </div>
+
+        <!-- Sample availability card (static example) -->
+        <div class="hero-card" aria-label="Example of book availability">
+          <h2>Available now</h2>
+          <ul class="book-list">
+            <li>
+              <div>
+                <strong>Clean Code</strong>
+                <span>2 of 3 copies on the shelf</span>
+              </div>
+              <span class="badge badge-green">Available</span>
+            </li>
+            <li>
+              <div>
+                <strong>Introduction to Algorithms</strong>
+                <span>0 of 2 copies on the shelf</span>
+              </div>
+              <span class="badge badge-amber">Reserve</span>
+            </li>
+            <li>
+              <div>
+                <strong>Operating System Concepts</strong>
+                <span>1 of 4 copies on the shelf</span>
+              </div>
+              <span class="badge badge-green">Available</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Everything a student needs</h2>
+        <p class="section-sub">Log in once and manage your borrowing from any device.</p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">1</div>
+            <h3>Check availability</h3>
+            <p>See which books are on the shelf before you walk in.</p>
+          </article>
+          <article class="card">
+            <div class="icon">2</div>
+            <h3>Reserve a title</h3>
+            <p>Join the queue for a book that is currently out and get it when it returns.</p>
+          </article>
+          <article class="card">
+            <div class="icon">3</div>
+            <h3>Request a loan</h3>
+            <p>Request an available copy and collect it at the desk. Track due dates from your account.</p>
+          </article>
+          <article class="card">
+            <div class="icon">4</div>
+            <h3>Pay fines online</h3>
+            <p>Settle overdue fines with one click so you can keep borrowing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">How borrowing works</h2>
+        <p class="section-sub">Four simple steps from search to shelf.</p>
+
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <h3>Log in</h3>
+            <p>Sign in with your student account.</p>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <h3>Request</h3>
+            <p>Find a book and request an available copy.</p>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <h3>Collect</h3>
+            <p>Pick it up at the desk. Staff confirm your loan.</p>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <h3>Return</h3>
+            <p>Hand it back to staff and pay any fine online.</p>
+          </li>
+        </ol>
+
+        <p class="note">Unpaid fines pause new loan requests until they are paid.</p>
+      </div>
+    </section>
+
+    <!-- Staff -->
+    <section id="staff" class="section">
+      <div class="container staff-grid">
+        <div>
+          <h2 class="section-title left">For library staff</h2>
+          <p class="section-sub left">Run the desk and the catalogue from one system.</p>
+          <a href="/login" class="btn">Staff log in</a>
+        </div>
+        <ul class="checks">
+          <li>Manage books and individual copies</li>
+          <li>Confirm pickups and process returns</li>
+          <li>Flag lost or damaged copies and issue fines</li>
+          <li>Administrators also manage staff accounts and settings</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready for your next read?</h2>
+        <a href="/login" class="btn btn-light">Log in</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Library System. Built with Spring Boot.</p>
+    </div>
+  </footer>
+
+</body>
 </html>
