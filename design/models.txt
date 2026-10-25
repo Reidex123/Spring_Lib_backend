@@ -1,6 +1,3 @@
-LIBRARY SYSTEM - CLASSES AND FIELDS
-===================================
-
 PEOPLE
 ------
 User
@@ -11,7 +8,7 @@ User
   phone: String
   passwordHash: String
 
-Student 
+Student
   studentNumber: String
   status: MemberStatus
   registeredOn: Date
@@ -53,10 +50,10 @@ TRANSACTIONS
 Loan
   loanId: long
   requestedOn: Date
-  pickupBy: Date       
-  issuedOn: Date       
-  dueOn: Date            
-  returnedOn: Date        
+  pickupBy: Date
+  issuedOn: Date
+  dueOn: Date
+  returnedOn: Date
   renewalCount: int
   status: LoanStatus
 
@@ -68,14 +65,14 @@ Reservation
 
 Fine
   fineId: long
-  amount: decimal
+  amount: double
   reason: FineReason
   issuedOn: Date
   status: FineStatus
 
-Payment 
+Payment
   paymentId: long
-  amount: decimal
+  amount: double
   paidOn: Date
   reference: String
 
@@ -87,14 +84,14 @@ Library
   address: String
   loanPeriodDays: int
   maxLoansPerStudent: int
-  finePerDay: decimal
+  finePerDay: double
 
 ENUMS
 -----
 MemberStatus: ACTIVE, SUSPENDED
 StaffRole: EMPLOYEE, ADMIN
 CopyStatus: AVAILABLE, ON_LOAN, RESERVED, LOST, DAMAGED   (RESERVED = held for a pickup or reservation)
-CopyCondition: (to be decided, e.g. GOOD, WORN, DAMAGED)
+CopyCondition: GOOD, WORN, DAMAGED
 LoanStatus: REQUESTED, ACTIVE, RETURNED, OVERDUE, LOST, CANCELLED, EXPIRED
 ReservationStatus: PENDING, READY, FULFILLED, EXPIRED, CANCELLED
 FineReason: OVERDUE, DAMAGED, LOST
@@ -108,4 +105,4 @@ BUSINESS RULES
 - Returns are processed by staff.
 - Unpaid fines (UNPAID or PARTIALLY_PAID) block new loan requests.
 - Fine payment is simulated: student clicks "pay", the system records a Payment.
-- Single library, H2 database for now.
+- Single library, H2 database.
