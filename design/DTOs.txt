@@ -1,0 +1,274 @@
+LIBRARY SYSTEM - DTOs AND FIELDS
+================================
+Naming: XRequest = input to a controller (validated), XResponse = output from a controller.
+Entities are never returned directly. passwordHash never appears in any DTO.
+Optional fields are marked (optional).
+
+
+AUTH (AuthController)
+---------------------
+LoginRequest
+  email: String
+  password: String
+
+AuthResponse
+  userId: long
+  firstName: String
+  lastName: String
+  role: String                  (STUDENT, EMPLOYEE or ADMIN)
+
+
+CATALOGUE (BookController, AuthorController, CategoryController)
+----------------------------------------------------------------
+CreateBookRequest
+  isbn: String
+  title: String
+  edition: String
+  publisher: String
+  publicationYear: int
+  authorIds: List<Long>
+  categoryId: long
+
+UpdateBookRequest
+  title: String
+  edition: String
+  publisher: String
+  publicationYear: int
+  authorIds: List<Long>
+  categoryId: long
+
+BookSummaryResponse             (used in search lists)
+  bookId: long
+  isbn: String
+  title: String
+  authors: List<String>
+  categoryName: String
+  availableCopies: int
+  totalCopies: int
+
+BookDetailResponse              (single book)
+  bookId: long
+  isbn: String
+  title: String
+  edition: String
+  publisher: String
+  publicationYear: int
+  authors: List<AuthorResponse>
+  category: CategoryResponse
+  availableCopies: int
+  totalCopies: int
+
+CreateAuthorRequest
+  name: String
+
+AuthorResponse
+  authorId: long
+  name: String
+
+CreateCategoryRequest
+  name: String
+
+CategoryResponse
+  categoryId: long
+  name: String
+
+
+COPIES (BookCopyController)
+---------------------------
+AddCopyRequest
+  barcode: String
+  condition: CopyCondition
+  shelfLocation: String
+  acquiredOn: Date
+
+UpdateCopyStatusRequest
+  status: CopyStatus
+
+BookCopyResponse
+  copyId: long
+  bookId: long
+  barcode: String
+  status: CopyStatus
+  condition: CopyCondition
+  shelfLocation: String
+  acquiredOn: Date
+
+
+LOANS (LoanController)
+----------------------
+CreateLoanRequest
+  bookId: long                  (student comes from the session, copy chosen by the system)
+
+ReturnLoanRequest
+  copyCondition: CopyCondition
+  damageFineAmount: decimal     (optional, only used when the copy is returned damaged)
+
+LoanResponse                    (student view)
+  loanId: long
+  bookTitle: String
+  status: LoanStatus
+  requestedOn: Date
+  pickupBy: Date
+  issuedOn: Date
+  dueOn: Date
+  returnedOn: Date
+  renewalCount: int
+
+LoanDetailResponse              (staff view)
+  loanId: long
+  studentId: long
+  studentName: String
+  studentNumber: String
+  bookTitle: String
+  copyId: long
+  copyBarcode: String
+  status: LoanStatus
+  requestedOn: Date
+  pickupBy: Date
+  issuedOn: Date
+  dueOn: Date
+  returnedOn: Date
+  renewalCount: int
+  issuedByStaffName: String
+  receivedByStaffName: String
+
+
+RESERVATIONS (ReservationController)
+------------------------------------
+CreateReservationRequest
+  bookId: long
+
+ReservationResponse             (student view)
+  reservationId: long
+  bookId: long
+  bookTitle: String
+  reservedOn: Date
+  expiresOn: Date
+  status: ReservationStatus
+  queuePosition: int
+
+ReservationDetailResponse       (staff view)
+  reservationId: long
+  studentId: long
+  studentName: String
+  studentNumber: String
+  bookId: long
+  bookTitle: String
+  reservedOn: Date
+  expiresOn: Date
+  status: ReservationStatus
+
+
+FINES (FineController)
+----------------------
+IssueFineRequest
+  loanId: long
+  reason: FineReason
+  amount: decimal
+
+FineResponse                    (student view)
+  fineId: long
+  loanId: long
+  bookTitle: String
+  reason: FineReason
+  amount: decimal
+  amountPaid: decimal
+  amountOutstanding: decimal
+  issuedOn: Date
+  status: FineStatus
+
+FineDetailResponse              (staff view)
+  fineId: long
+  loanId: long
+  studentId: long
+  studentName: String
+  bookTitle: String
+  reason: FineReason
+  amount: decimal
+  amountPaid: decimal
+  amountOutstanding: decimal
+  issuedOn: Date
+  status: FineStatus
+
+
+PAYMENTS (PaymentController)
+----------------------------
+PayFineRequest
+  amount: decimal               (optional, empty means pay the full outstanding amount)
+
+PaymentResponse
+  paymentId: long
+  fineId: long
+  amount: decimal
+  paidOn: Date
+  reference: String
+  fineStatus: FineStatus        (status of the fine after this payment)
+
+
+STUDENTS (StudentController)
+----------------------------
+RegisterStudentRequest
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  studentNumber: String
+  initialPassword: String
+
+UpdateStudentStatusRequest
+  status: MemberStatus
+
+StudentResponse
+  userId: long
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  studentNumber: String
+  status: MemberStatus
+  registeredOn: Date
+
+
+STAFF (StaffController, admin only)
+-----------------------------------
+CreateStaffRequest
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  employeeNumber: String
+  role: StaffRole
+  hiredOn: Date
+  initialPassword: String
+
+StaffResponse
+  userId: long
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  employeeNumber: String
+  role: StaffRole
+  hiredOn: Date
+
+
+COMMON
+------
+ErrorResponse
+  timestamp: DateTime
+  status: int
+  error: String
+  message: String
+  path: String
+  fieldErrors: List<FieldErrorResponse>   (filled for validation errors only)
+
+FieldErrorResponse
+  field: String
+  message: String
+
+PageResponse<T>
+  content: List<T>
+  page: int
+  size: int
+  totalElements: long
+  totalPages: int
