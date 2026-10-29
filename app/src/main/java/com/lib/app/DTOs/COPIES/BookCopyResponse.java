@@ -1,5 +1,14 @@
 package com.lib.app.DTOs.COPIES;
 
+import java.time.LocalDate;
+
+import com.lib.app.enums.CopyCondition;
+import com.lib.app.enums.CopyStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 @AllArgsConstructor
 @Getter
 @Setter

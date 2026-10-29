@@ -1,5 +1,13 @@
 package com.lib.app.DTOs.RESERVATIONS;
 
+import java.time.LocalDate;
+
+import com.lib.app.enums.ReservationStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 @AllArgsConstructor
 @Getter
 @Setter
