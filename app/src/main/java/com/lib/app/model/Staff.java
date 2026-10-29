@@ -4,23 +4,23 @@ import java.time.LocalDate;
 
 import com.lib.app.enums.StaffRole;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Staff extends User{
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long employeeId;
-
+    @Column(nullable=false, unique=true)
+    private Long employeeNumber;
+    @Enumerated(EnumType.STRING)
     private StaffRole role;
     private LocalDate hiredOn;
+
 }

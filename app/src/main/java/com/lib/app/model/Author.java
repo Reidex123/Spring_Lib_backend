@@ -1,21 +1,21 @@
-package com.lib.app.model;
+// package com.lib.app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import lombok.AllArgsConstructor;
+// import lombok.Getter;
+// import lombok.Setter;
 
-@Entity 
-@AllArgsConstructor 
-@Getter 
-@Setter 
-public class Author {
-    @Id 
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long authorId;
+// @Entity 
+// @AllArgsConstructor 
+// @Getter 
+// @Setter 
+// public class Author {
+//     @Id 
+//     @GeneratedValue(strategy=GenerationType.IDENTITY)
+//     private Long authorId;
 
-    private String name;
-}
+//     private String name;
+// }
