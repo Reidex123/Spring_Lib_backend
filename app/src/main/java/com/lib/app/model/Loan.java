@@ -34,7 +34,7 @@ public class Loan {
     private LocalDate dueOn;
     private LocalDate returnedOn;
     private int renewalCount;
-    
+
     @Enumerated(EnumType.STRING)
     private LoanStatus status;
 
@@ -51,6 +51,6 @@ public class Loan {
     private Staff issuedBy;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="recieved_by_id") 
-    private Staff recievedBy;
+    @JoinColumn(name="received_by_id")
+    private Staff receivedBy;
 }

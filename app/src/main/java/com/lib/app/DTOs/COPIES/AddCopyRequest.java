@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record AddCopyRequest(
     @NotBlank String barcode,
-    @NotNull CopyCondition condition,
+    @NotNull CopyCondition copyCondition,
     @NotBlank String shelfLocation,
     LocalDate acquiredOn
 ) {}

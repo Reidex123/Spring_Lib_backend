@@ -14,7 +14,7 @@ import lombok.Setter;
 public class LoanDetailResponse {
     private Long loanId;
     private Long studentId;
-    private String staudentName;
+    private String studentName;
     private String studentNumber;
     private String bookTitle;
     private Long copyId;
@@ -27,5 +27,5 @@ public class LoanDetailResponse {
     private LocalDate returnedOn;
     private int renewalCount;
     private String issuedByStaffName;
-    private String recievedByStaffName;
+    private String receivedByStaffName;
 }

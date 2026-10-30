@@ -16,11 +16,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Staff extends User{
+public class Staff extends User {
+
     @Column(nullable=false, unique=true)
-    private Long employeeNumber;
+    private String employeeNumber;
+
     @Enumerated(EnumType.STRING)
     private StaffRole role;
+
     private LocalDate hiredOn;
 
 }

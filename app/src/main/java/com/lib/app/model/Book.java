@@ -18,14 +18,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity 
+@Entity
 @Table(name="books")
-@NoArgsConstructor  
-@Setter 
-@Getter 
+@NoArgsConstructor
+@Setter
+@Getter
 public class Book {
-    
-    @Id 
+
+    @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
@@ -41,11 +41,11 @@ public class Book {
     @JoinTable(
         name="book_author",
         joinColumns=@JoinColumn(name="book_id"),
-        inverseJoinColumns=@JoinColumn(name="uathor_id")
+        inverseJoinColumns=@JoinColumn(name="author_id")
     )
     private Set<Author> authors = new HashSet<>();
-    
+
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="category_id")
-    Category category;
+    private Category category;
 }

@@ -20,19 +20,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity 
-@Table(name="BookCopy")
-@NoArgsConstructor 
-@Getter 
+@Entity
+@Table(name="book_copies")
+@NoArgsConstructor
+@Getter
 @Setter
 public class BookCopy {
-    @Id 
+    @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long copyId;
 
     @Column(nullable=false, unique=true)
     private String barcode;
-    
+
     @Enumerated(EnumType.STRING)
     private CopyStatus status;
 
@@ -40,7 +40,7 @@ public class BookCopy {
     private CopyCondition copyCondition;
 
     private String shelfLocation;
-    
+
     private LocalDate acquiredOn;
 
     @ManyToOne(fetch=FetchType.LAZY, optional=false)

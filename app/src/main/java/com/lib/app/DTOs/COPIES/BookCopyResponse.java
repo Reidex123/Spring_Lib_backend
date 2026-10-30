@@ -17,7 +17,7 @@ public class BookCopyResponse {
     private Long bookId;
     private String barcode;
     private CopyStatus status;
-    private CopyCondition condition;
+    private CopyCondition copyCondition;
     private String shelfLocation;
     private LocalDate acquiredOn;
 }

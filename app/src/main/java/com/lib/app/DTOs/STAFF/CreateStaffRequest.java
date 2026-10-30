@@ -15,5 +15,6 @@ public record CreateStaffRequest(
     String phone,
     @NotBlank  String employeeNumber,
     @NotNull StaffRole role,
-    LocalDate hiredOn    
+    LocalDate hiredOn,
+    @NotBlank String initialPassword
 ) {}
