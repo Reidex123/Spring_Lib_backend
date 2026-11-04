@@ -8,4 +8,5 @@ import com.lib.app.model.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long>{
     boolean existsByName(String name);
+
 }
