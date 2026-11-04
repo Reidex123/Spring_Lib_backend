@@ -1,18 +1,20 @@
 package com.lib.app.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lib.app.DTOs.CATALOGUE.CategoryResponse;
 import com.lib.app.DTOs.CATALOGUE.CreateCategoryResponse;
 import com.lib.app.service.CategoryService;
-import java.util.List;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -24,11 +26,11 @@ public class CategoryController {
 
     @GetMapping
     public List<CategoryResponse> getAll(){
-        return categoryService.getAll().orElseThrow(() -> new RuntimeException("Error retrieving the categories!!")); 
+        return categoryService.getAll();
     }
     @GetMapping("/{id}")
     public CategoryResponse getById(@PathVariable Long id){
-        return categoryService.getById(id).orElseThrow(() -> new RuntimeException("Speified category does not exist"));
+        return categoryService.getById(id);
     }
     @PostMapping
     public ResponseEntity<CategoryResponse> create(@Valid @RequestBody CreateCategoryResponse request){
