@@ -2,12 +2,14 @@ package com.lib.app.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lib.app.DTOs.CATALOGUE.CategoryResponse;
 import com.lib.app.DTOs.CATALOGUE.CreateCategoryResponse;
+import com.lib.app.exceptions.NoCategoryException;
 import com.lib.app.model.Category;
 import com.lib.app.repository.CategoryRepository;
 
@@ -20,7 +22,7 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     public List<CategoryResponse> getAll(){
-        ArrayList<CategoryResponse> response = new ArrayList<>();
+        List<CategoryResponse> response = new ArrayList<>();
         List<Category> categories = categoryRepository.findAll();
 
         if (categories.isEmpty()){
@@ -40,10 +42,16 @@ public class CategoryService {
     }
 
     public CategoryResponse getById(Long id){
-        return null;
+        Optional<Category> getCategory = categoryRepository.findById(id);
+        
+        Category foundCategory = getCategory.orElseThrow(() -> new NoCategoryException("Category with id=" + id + " not found"));
+
+        return new CategoryResponse(foundCategory.getName());
+
     }
 
     public CategoryResponse create(CreateCategoryResponse request){
+
         return null;
     }
     
