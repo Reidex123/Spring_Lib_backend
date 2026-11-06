@@ -51,8 +51,12 @@ public class CategoryService {
     }
 
     public CategoryResponse create(CreateCategoryResponse request){
+        Category category = new Category();
+        category.setName(request.name());
 
-        return null;
+        Category savedCategory = categoryRepository.save(category);
+        
+        return new CategoryResponse(savedCategory.getName());
     }
     
 }
