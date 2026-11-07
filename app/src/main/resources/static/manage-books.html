@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage books | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="staff-dashboard.html">Dashboard</a>
+      <a href="manage-books.html" aria-current="page">Manage books</a>
+      <a href="admin.html">Admin</a>
+      </nav>
+      <div class="header-actions"><span class="chip-label">Staff: T. Mokoena</span><a href="index.html" class="btn btn-small btn-outline">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="page"><div class="container">
+    <div class="page-head"><div><h1>Manage books</h1><p>Add titles, authors and categories, and keep track of every physical copy.</p></div><a href="#" class="btn">Add book</a></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Title</th><th>Author</th><th>Category</th><th>Available / total</th><th>Action</th></tr></thead>
+      <tbody>
+<tr><td><strong>Clean Code</strong></td><td>Robert C. Martin</td><td>Software Engineering</td><td>2/3</td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Introduction to Algorithms</strong></td><td>Cormen, Leiserson, Rivest, Stein</td><td>Computer Science</td><td>0/2</td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Operating System Concepts</strong></td><td>Silberschatz, Galvin, Gagne</td><td>Computer Science</td><td>1/4</td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Computer Networking: A Top-Down Approach</strong></td><td>Kurose, Ross</td><td>Networks</td><td>3/3</td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Database System Concepts</strong></td><td>Silberschatz, Korth, Sudarshan</td><td>Databases</td><td>0/2</td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Compilers: Principles, Techniques, & Tools</strong></td><td>Aho, Lam, Sethi, Ullman</td><td>Computer Science</td><td>1/2</td><td><a href="#" class="text-green">Edit</a></td></tr>
+      </tbody>
+    </table></div>
+    <div class="section-gap"><div class="panel-head"><h2 style="font-size:1.3rem">Copies for Clean Code</h2><a href="#" class="btn btn-small">Add copy</a></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Barcode</th><th>Status</th><th>Condition</th><th>Shelf</th><th>Action</th></tr></thead>
+      <tbody>
+<tr><td><strong>LIB-CC-001</strong></td><td><span class="badge badge-green">On shelf</span></td><td>Good</td><td>A2-14</td><td><a href="#" class="text-green">Change status</a></td></tr>
+<tr><td><strong>LIB-CC-002</strong></td><td><span class="badge badge-blue">On loan</span></td><td>Good</td><td>A2-14</td><td><a href="#" class="text-green">Change status</a></td></tr>
+<tr><td><strong>LIB-CC-003</strong></td><td><span class="badge badge-green">On shelf</span></td><td>Worn</td><td>A2-14</td><td><a href="#" class="text-green">Change status</a></td></tr>
+<tr><td><strong>LIB-CC-004</strong></td><td><span class="badge badge-blue">On loan</span></td><td>Good</td><td>A2-14</td><td><a href="#" class="text-green">Change status</a></td></tr>
+      </tbody>
+    </table></div></div>
+  </div></main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>

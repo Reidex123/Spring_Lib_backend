@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My fines | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="catalogue.html">Catalogue</a>
+      <a href="my-loans.html">My loans</a>
+      <a href="my-reservations.html">My reservations</a>
+      <a href="my-fines.html" aria-current="page">My fines</a>
+      </nav>
+      <div class="header-actions"><span class="chip-label">Samira Khan</span><a href="index.html" class="btn btn-small btn-outline">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="page"><div class="container">
+    <div class="page-head"><div><h1>My fines</h1><p>Pay what you owe to keep borrowing. Payment here is simulated.</p></div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Book</th><th>Reason</th><th>Issued</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody>
+<tr><td><strong>Database System Concepts</strong></td><td>Overdue return</td><td>20 Oct 2026</td><td>R80.00</td><td><span class="badge badge-red">Unpaid</span></td><td><a href="#" class="btn btn-small">Pay</a></td></tr>
+<tr><td><strong>Operating System Concepts</strong></td><td>Lost copy</td><td>12 Aug 2026</td><td>R35.00</td><td><span class="badge badge-green">Paid</span></td><td>&ndash;</td></tr>
+<tr><td><strong>Clean Code</strong></td><td>Damaged copy</td><td>01 Oct 2026</td><td>R120.00</td><td><span class="badge badge-red">Unpaid</span></td><td><a href="#" class="btn btn-small">Pay</a></td></tr>
+      </tbody>
+    </table></div>
+    <div class="balance">
+      <div><span class="muted">Outstanding balance</span><strong>R200.00</strong></div>
+      <a href="#" class="btn">Pay all</a>
+    </div>
+  </div></main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>

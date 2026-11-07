@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff dashboard | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="staff-dashboard.html" aria-current="page">Dashboard</a>
+      <a href="manage-books.html">Manage books</a>
+      <a href="admin.html">Admin</a>
+      </nav>
+      <div class="header-actions"><span class="chip-label">Staff: T. Mokoena</span><a href="index.html" class="btn btn-small btn-outline">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="page"><div class="container">
+    <div class="page-head"><div><h1>Staff dashboard</h1><p>Today at the desk.</p></div></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">Pickups waiting</div><div class="stat-value">12</div></div>
+      <div class="stat"><div class="stat-label">Returns due today</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">Overdue loans</div><div class="stat-value">18</div></div>
+    </div>
+    <div class="section-gap" style="margin-top:0"><h2 style="font-size:1.3rem;margin-bottom:1rem">Pickup requests</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Student</th><th>Book</th><th>Copy</th><th>Pick up by</th><th>Action</th></tr></thead>
+      <tbody>
+<tr><td><strong>Samira Khan</strong></td><td>Clean Code</td><td>LIB-CC-002</td><td>10 Nov 2026</td><td><a href="#" class="btn btn-small">Confirm pickup</a></td></tr>
+<tr><td><strong>Daniel Wu</strong></td><td>Operating System Concepts</td><td>LIB-OS-001</td><td>10 Nov 2026</td><td><a href="#" class="btn btn-small">Confirm pickup</a></td></tr>
+<tr><td><strong>Priya Nair</strong></td><td>Introduction to Algorithms</td><td>LIB-IA-003</td><td>11 Nov 2026</td><td><a href="#" class="btn btn-small">Confirm pickup</a></td></tr>
+      </tbody>
+    </table></div></div>
+    <div class="section-gap"><h2>Quick actions</h2>
+    <div class="quick">
+      <a href="#"><strong>Process a return</strong><span class="muted">Scan a barcode and close the loan</span></a>
+      <a href="manage-books.html"><strong>Manage books</strong><span class="muted">Add titles and copies</span></a>
+      <a href="admin.html"><strong>Register a student</strong><span class="muted">Create a new account</span></a>
+    </div></div>
+  </div></main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>

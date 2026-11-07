@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My loans | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="catalogue.html">Catalogue</a>
+      <a href="my-loans.html" aria-current="page">My loans</a>
+      <a href="my-reservations.html">My reservations</a>
+      <a href="my-fines.html">My fines</a>
+      </nav>
+      <div class="header-actions"><span class="chip-label">Samira Khan</span><a href="index.html" class="btn btn-small btn-outline">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="page"><div class="container">
+    <div class="page-head"><div><h1>My loans</h1><p>Requests, active loans and your borrowing history.</p></div><a href="catalogue.html" class="btn">Find a book</a></div>
+    <div class="notice notice-warn">You have unpaid fines. New loan requests are paused until they are paid. <a href="my-fines.html" style="text-decoration:underline">Go to my fines</a></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Book</th><th>Requested</th><th>Pick up by</th><th>Due</th><th>Returned</th><th>Status</th></tr></thead>
+      <tbody>
+<tr><td><strong>Clean Code</strong></td><td>03 Nov 2026</td><td>10 Nov 2026</td><td>24 Nov 2026</td><td>&ndash;</td><td><span class="badge badge-green">Active</span></td></tr>
+<tr><td><strong>Operating System Concepts</strong></td><td>06 Nov 2026</td><td>10 Nov 2026</td><td>&ndash;</td><td>&ndash;</td><td><span class="badge badge-amber">Requested</span></td></tr>
+<tr><td><strong>Database System Concepts</strong></td><td>02 Oct 2026</td><td>03 Oct 2026</td><td>17 Oct 2026</td><td>&ndash;</td><td><span class="badge badge-red">Overdue</span></td></tr>
+<tr><td><strong>Computer Networking: A Top-Down Approach</strong></td><td>01 Sep 2026</td><td>02 Sep 2026</td><td>16 Sep 2026</td><td>14 Sep 2026</td><td><span class="badge badge-gray">Returned</span></td></tr>
+      </tbody>
+    </table></div>
+  </div></main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>
