@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="index.html#staff">For staff</a>
+      </nav>
+      <div class="header-actions"><a href="login.html" class="btn btn-small">Log in</a></div>
+    </div>
+  </header>
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <h1>Welcome back</h1>
+      <p class="sub">Log in to your library account.</p>
+      <form action="catalogue.html" method="get">
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Your password"></div>
+        <button type="submit" class="btn btn-block">Log in</button>
+      </form>
+      <a href="#" class="forgot">Forgot your password?</a>
+      <p class="foot">Staff and students use the same login. Accounts are created by library staff.</p>
+    </div>
+  </main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>

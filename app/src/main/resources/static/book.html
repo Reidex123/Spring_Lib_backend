@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean Code | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="catalogue.html" aria-current="page">Catalogue</a>
+      <a href="my-loans.html">My loans</a>
+      <a href="my-reservations.html">My reservations</a>
+      <a href="my-fines.html">My fines</a>
+      </nav>
+      <div class="header-actions"><span class="chip-label">Samira Khan</span><a href="index.html" class="btn btn-small btn-outline">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="page"><div class="container">
+    <p class="muted" style="margin-bottom:1.5rem"><a href="catalogue.html" class="text-green">&larr; Back to catalogue</a></p>
+    <div class="detail">
+      <div class="cover cover-lg cover-green">Clean Code</div>
+      <div>
+        <span class="badge badge-green">Available</span>
+        <h1 style="margin-top:.6rem">Clean Code</h1>
+        <p class="byline">by Robert C. Martin</p>
+        <dl class="facts">
+          <dt>ISBN</dt><dd>978-0-13-235088-4</dd>
+          <dt>Publisher</dt><dd>Prentice Hall</dd>
+          <dt>Edition</dt><dd>1st</dd>
+          <dt>Year</dt><dd>2008</dd>
+          <dt>Category</dt><dd>Software Engineering</dd>
+        </dl>
+        <div class="detail-actions">
+          <a href="my-loans.html" class="btn">Request loan</a>
+          <a href="my-reservations.html" class="btn btn-outline">Reserve</a>
+        </div>
+        <p class="muted" style="margin-top:.6rem;font-size:.9rem">Reserve is only available when no copy is on the shelf.</p>
+        <div class="about">
+          <h2>About this book</h2>
+          <p>A handbook of agile software craftsmanship. It shows how to write code that is readable, simple and easy to change, with practical examples of good and bad code.</p>
+        </div>
+      </div>
+      <div class="side-stack">
+        <div class="panel">
+          <h2>Availability at a glance</h2>
+          <ul class="glance">
+            <li><span>Total copies</span><span>3</span></li>
+            <li><span>On the shelf</span><span class="text-green">2</span></li>
+            <li><span>On loan</span><span>1</span></li>
+            <li><span>Reservations waiting</span><span>0</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h2>How borrowing works</h2>
+          <ol class="how-list">
+            <li><strong>1. Request</strong><span>Request a copy online.</span></li>
+            <li><strong>2. Collect</strong><span>Pick it up at the desk before the pickup date.</span></li>
+            <li><strong>3. Return</strong><span>Hand it back to staff by the due date.</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div></main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>

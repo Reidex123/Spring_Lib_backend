@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="catalogue.html" aria-current="page">Catalogue</a>
+      <a href="my-loans.html">My loans</a>
+      <a href="my-reservations.html">My reservations</a>
+      <a href="my-fines.html">My fines</a>
+      </nav>
+      <div class="header-actions"><span class="chip-label">Samira Khan</span><a href="index.html" class="btn btn-small btn-outline">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="page"><div class="container">
+    <div class="page-head"><div><h1>Catalogue</h1><p>Search the library and see what is on the shelf right now.</p></div></div>
+    <form class="search-box" onsubmit="return false"><input type="search" placeholder="Search by title, author or ISBN" aria-label="Search books"></form>
+    <div class="chips">
+      <span class="chip active">All</span><span class="chip">Computer Science</span><span class="chip">Software Engineering</span><span class="chip">Networks</span><span class="chip">Databases</span>
+    </div>
+    <div class="book-grid">
+      <article class="book-card">
+        <div class="cover cover-sm cover-green">Clean Code</div>
+        <div>
+          <h3>Clean Code</h3>
+          <p class="book-meta">Robert C. Martin</p>
+          <p class="book-meta">Software Engineering</p>
+          <span class="badge badge-green">Available</span>
+          <p class="book-meta">2 of 3 copies on the shelf</p>
+          <a href="book.html" class="btn btn-small">Request loan</a>
+        </div>
+      </article>
+      <article class="book-card">
+        <div class="cover cover-sm cover-navy">Introduction to Algorithms</div>
+        <div>
+          <h3>Introduction to Algorithms</h3>
+          <p class="book-meta">Cormen, Leiserson, Rivest, Stein</p>
+          <p class="book-meta">Computer Science</p>
+          <span class="badge badge-amber">Reserve</span>
+          <p class="book-meta">0 of 2 copies on the shelf</p>
+          <a href="book.html" class="btn btn-small">Reserve</a>
+        </div>
+      </article>
+      <article class="book-card">
+        <div class="cover cover-sm cover-brown">Operating System Concepts</div>
+        <div>
+          <h3>Operating System Concepts</h3>
+          <p class="book-meta">Silberschatz, Galvin, Gagne</p>
+          <p class="book-meta">Computer Science</p>
+          <span class="badge badge-green">Available</span>
+          <p class="book-meta">1 of 4 copies on the shelf</p>
+          <a href="book.html" class="btn btn-small">Request loan</a>
+        </div>
+      </article>
+      <article class="book-card">
+        <div class="cover cover-sm cover-teal">Computer Networking</div>
+        <div>
+          <h3>Computer Networking: A Top-Down Approach</h3>
+          <p class="book-meta">Kurose, Ross</p>
+          <p class="book-meta">Networks</p>
+          <span class="badge badge-green">Available</span>
+          <p class="book-meta">3 of 3 copies on the shelf</p>
+          <a href="book.html" class="btn btn-small">Request loan</a>
+        </div>
+      </article>
+      <article class="book-card">
+        <div class="cover cover-sm cover-plum">Database System Concepts</div>
+        <div>
+          <h3>Database System Concepts</h3>
+          <p class="book-meta">Silberschatz, Korth, Sudarshan</p>
+          <p class="book-meta">Databases</p>
+          <span class="badge badge-amber">Reserve</span>
+          <p class="book-meta">0 of 2 copies on the shelf</p>
+          <a href="book.html" class="btn btn-small">Reserve</a>
+        </div>
+      </article>
+      <article class="book-card">
+        <div class="cover cover-sm cover-slate">Compilers</div>
+        <div>
+          <h3>Compilers: Principles, Techniques, & Tools</h3>
+          <p class="book-meta">Aho, Lam, Sethi, Ullman</p>
+          <p class="book-meta">Computer Science</p>
+          <span class="badge badge-green">Available</span>
+          <p class="book-meta">1 of 2 copies on the shelf</p>
+          <a href="book.html" class="btn btn-small">Request loan</a>
+        </div>
+      </article>
+    </div>
+  </div></main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>

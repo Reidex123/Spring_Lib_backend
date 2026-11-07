@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Library<span>System</span></a>
+      <nav class="main-nav">
+      <a href="staff-dashboard.html">Dashboard</a>
+      <a href="manage-books.html">Manage books</a>
+      <a href="admin.html" aria-current="page">Admin</a>
+      </nav>
+      <div class="header-actions"><span class="chip-label">Staff: T. Mokoena</span><a href="index.html" class="btn btn-small btn-outline">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="page"><div class="container">
+    <div class="page-head"><div><h1>Admin</h1><p>Manage student and staff accounts.</p></div></div>
+    <div class="tabs">
+      <input type="radio" name="tab" id="tab-students" checked>
+      <input type="radio" name="tab" id="tab-staff">
+      <div class="tab-labels"><label for="tab-students">Students</label><label for="tab-staff">Staff</label></div>
+      <div class="tab-panel panel-students">
+        <div class="tab-actions"><a href="#" class="btn btn-small">Register student</a></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Name</th><th>Student no.</th><th>Email</th><th>Loans</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+<tr><td><strong>Samira Khan</strong></td><td>SK2024001</td><td>samira@example.com</td><td>3</td><td><span class="badge badge-green">Active</span></td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Daniel Wu</strong></td><td>DW2024014</td><td>daniel@example.com</td><td>1</td><td><span class="badge badge-green">Active</span></td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Priya Nair</strong></td><td>PN2023099</td><td>priya@example.com</td><td>0</td><td><span class="badge badge-red">Suspended</span></td><td><a href="#" class="text-green">Edit</a></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="tab-panel panel-staff">
+        <div class="tab-actions"><a href="#" class="btn btn-small">Add staff</a></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Name</th><th>Employee no.</th><th>Role</th><th>Action</th></tr></thead>
+          <tbody>
+<tr><td><strong>Thandi Mokoena</strong></td><td>EMP001</td><td>Employee</td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Lerato Dlamini</strong></td><td>EMP002</td><td>Employee</td><td><a href="#" class="text-green">Edit</a></td></tr>
+<tr><td><strong>Admin User</strong></td><td>ADM001</td><td>Admin</td><td><a href="#" class="text-green">Edit</a></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div></main>
+  <footer class="footer-compact"><div class="container">&copy; 2026 Library System &middot; library@example.com</div></footer>
+</body>
+</html>
