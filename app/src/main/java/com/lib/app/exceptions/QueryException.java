@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class NoCategoryException extends RuntimeException{
+public class QueryException extends RuntimeException{
 
-    public NoCategoryException(String message){
+    public QueryException(String message){
         super(message);
     }
 
