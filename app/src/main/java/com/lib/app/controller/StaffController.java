@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lib.app.DTOs.STAFF.StaffResponse;
 import com.lib.app.service.UserDetailsService;
-
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -17,6 +17,11 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/staff")
 public class StaffController {
     private final UserDetailsService staffService;
+
+    @GetMapping("/all")
+    public List<StaffResponse> getAll() {
+        return staffService.getAll();
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<StaffResponse> getById(@PathVariable Long id){
