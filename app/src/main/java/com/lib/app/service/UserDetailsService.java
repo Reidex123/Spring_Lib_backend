@@ -1,3 +1,8 @@
+/**
+ * Define the services that can done for the user
+ * Request to this layer get DTOs as response
+ */
+
 package com.lib.app.service;
 
 import java.util.ArrayList;
@@ -13,6 +18,7 @@ import com.lib.app.DTOs.STUDENTS.RegisterStudentRequest;
 import com.lib.app.DTOs.STUDENTS.StudentResponse;
 import com.lib.app.exceptions.QueryException;
 import com.lib.app.model.Staff;
+import com.lib.app.model.Student;
 import com.lib.app.repository.StaffRepository;
 import com.lib.app.repository.StudentRepository;
 
@@ -26,6 +32,11 @@ public class UserDetailsService {
     private final StaffRepository staffRepository;
     private final StudentRepository studentRepository;
 
+    /**
+     * Retrieve a list of all Staff in the system
+     * @param None
+     * @return List<StaffResponse>
+     */
     public List<StaffResponse> getAllStaff(){
         List<Staff> query = staffRepository.findAll();
 
@@ -41,30 +52,102 @@ public class UserDetailsService {
         return response;
     }
 
+    /**
+     * Retrieve a list of all students in the system
+     * @param None
+     * @return  List<StudentResponse>
+     */
     public List<StudentResponse> getAllStudents(){
-        return null;
+        List<Student> query = studentRepository.findAll();
+
+        List<StudentResponse> response = new ArrayList<>();
+        for (Student student: query){
+            response.add(new StudentResponse(student.getUserId(), student.getFirstName(), 
+                                            student.getLastName(), student.getEmail(), 
+                                            student.getEmail(), student.getStudentNumber(), 
+                                            student.getStatus(), student.getRegisteredOn()));
+        }
+
+        return response;
     }
-    
+
+    /**
+     * Retrieve a staff member by their id
+     * @param id
+     * @return  StaffResponse
+     */
     public StaffResponse getStaffById(Long id){
         Optional<Staff> query = staffRepository.findById(id);
 
-        Staff result = query.orElseThrow(() -> new QueryException("User with id=" + id + " not found"));
+        Staff response = query.orElseThrow(() -> new QueryException("Staff with id=" + id + " not found!"));
 
-        return new StaffResponse(result.getUserId(), result.getFirstName(), 
-                                result.getLastName(), result.getEmail(), 
-                                result.getPhone(), result.getEmployeeNumber(), 
-                                result.getRole(), result.getHiredOn());
+        return new StaffResponse(response.getUserId(), response.getFirstName(), 
+                                response.getLastName(), response.getEmail(), 
+                                response.getPhone(), response.getEmployeeNumber(), 
+                                response.getRole(), response.getHiredOn());
     }
 
+    /**
+     * Retrive a student by their id
+     * @param id
+     * @return  StudentResponse
+     */
     public StudentResponse getStudentById(Long id){
-        return null;
+        Optional<Student> query = studentRepository.findById(id);
+
+        Student response = query.orElseThrow(() -> new QueryException("Student with id=" + id + " not found!"));
+
+        return new StudentResponse(response.getUserId(), response.getFirstName(), 
+                                response.getLastName(), response.getEmail(), 
+                                response.getPhone(), response.getStudentNumber(), 
+                                response.getStatus(), response.getRegisteredOn());
     }
 
+    /**
+     * Create a new staff member or Update the details of an existing staff member
+     * @param request
+     * @return StaffResponse
+     */
     public StaffResponse createStaff(CreateStaffRequest request){
-        return null;
+        Staff newStaff = new Staff();
+
+        newStaff.setFirstName(request.firstName());
+        newStaff.setLastName(request.lastName());
+        newStaff.setEmail(request.email());
+        newStaff.setPhone(request.phone());
+        newStaff.setEmployeeNumber(request.employeeNumber());
+        newStaff.setRole(request.role());
+        newStaff.setHiredOn(request.hiredOn());
+        newStaff.setPasswordHash(request.initialPassword());
+
+        Staff savedStaff = staffRepository.save(newStaff);
+
+        return new StaffResponse(savedStaff.getUserId(), savedStaff.getFirstName(), 
+                                savedStaff.getLastName(), savedStaff.getEmail(), 
+                                savedStaff.getPhone(), savedStaff.getEmployeeNumber(), 
+                                savedStaff.getRole(), savedStaff.getHiredOn());
     }
 
+    /**
+     * Register a new Student into the system
+     * @param request
+     * @return StudentResponse
+     */
     public StudentResponse createStudent(RegisterStudentRequest request){
-        return null;
+        Student newStudent = new Student();
+
+        newStudent.setFirstName(request.firstName());
+        newStudent.setLastName(request.lastName());
+        newStudent.setEmail(request.email());
+        newStudent.setPhone(request.phone());
+        newStudent.setStudentNumber(request.studentNumber());
+        newStudent.setPasswordHash(request.initialPassword());
+
+        Student savedStudent = studentRepository.save(newStudent);
+
+        return new StudentResponse(savedStudent.getUserId(), savedStudent.getFirstName(), 
+                                    savedStudent.getLastName(), savedStudent.getEmail(), 
+                                    savedStudent.getPhone(), savedStudent.getStudentNumber(), 
+                                    savedStudent.getStatus(), savedStudent.getRegisteredOn());
     }
 }
