@@ -88,6 +88,22 @@ public class UserDetailsService {
     }
 
     /**
+     * Retrieve a staff member by their id
+     * @param employeeNumber
+     * @return  StaffResponse
+     */
+    public StaffResponse getByEmployeeNumber(String employeeNumber){
+        Optional<Staff> query = staffRepository.findByEmployeeNumber(employeeNumber);
+
+        Staff response = query.orElseThrow(() -> new QueryException("Staff with employee_number=" + employeeNumber + " not found!"));
+    
+        return new StaffResponse(response.getUserId(), response.getFirstName(), 
+                                response.getLastName(), response.getEmail(), 
+                                response.getPhone(), response.getEmployeeNumber(), 
+                                response.getRole(), response.getHiredOn());
+    }
+
+    /**
      * Retrive a student by their id
      * @param id
      * @return  StudentResponse
@@ -96,6 +112,22 @@ public class UserDetailsService {
         Optional<Student> query = studentRepository.findById(id);
 
         Student response = query.orElseThrow(() -> new QueryException("Student with id=" + id + " not found!"));
+
+        return new StudentResponse(response.getUserId(), response.getFirstName(), 
+                                response.getLastName(), response.getEmail(), 
+                                response.getPhone(), response.getStudentNumber(), 
+                                response.getStatus(), response.getRegisteredOn());
+    }
+
+    /**
+     * Retrive a student by their id
+     * @param studentNumber
+     * @return  StudentResponse
+     */
+    public StudentResponse getByStudentNumber(String studentNumber){
+        Optional<Student> query = studentRepository.findByStudentNumber(studentNumber);
+
+        Student response = query.orElseThrow(() -> new QueryException("Student with student_number=" + studentNumber + " not found!"));
 
         return new StudentResponse(response.getUserId(), response.getFirstName(), 
                                 response.getLastName(), response.getEmail(), 
@@ -149,5 +181,57 @@ public class UserDetailsService {
                                     savedStudent.getLastName(), savedStudent.getEmail(), 
                                     savedStudent.getPhone(), savedStudent.getStudentNumber(), 
                                     savedStudent.getStatus(), savedStudent.getRegisteredOn());
+    }
+
+    public StaffResponse deleteStaffById(Long id){
+        try {
+            StaffResponse query = getStaffById(id);
+
+            staffRepository.deleteById(id);
+
+            return query;
+
+        } catch (QueryException e) {
+            throw new QueryException("Couldn't perform delete operation");
+        }
+    }
+
+    public StaffResponse deleteByEmployeeNumber(String employeeNumber){
+        try {
+            StaffResponse query = getByEmployeeNumber(employeeNumber);
+
+            staffRepository.deleteByEmployeeNumber(employeeNumber);
+
+            return query;
+
+        } catch (QueryException e) {
+            throw new QueryException("Couldn't perform delete operation");
+        }
+    }
+
+    public StudentResponse deleteStudentById(Long id){
+        try{
+            StudentResponse query = getStudentById(id);
+
+            studentRepository.deleteById(id);
+
+            return query;
+            
+        } catch (QueryException e) {
+            throw new QueryException("Couldn't perform delete operation");
+        }
+    }
+
+    public StudentResponse deleteByStudentNumber(String studentNumber){
+        try{
+            StudentResponse query = getByStudentNumber(studentNumber);
+
+            studentRepository.deleteByStudentNumber(studentNumber);
+
+            return query;
+
+        } catch (QueryException e){
+            throw new QueryException("Couldn't perform delete operation");
+        }
     }
 }
