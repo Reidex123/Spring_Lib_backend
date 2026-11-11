@@ -1,3 +1,8 @@
+/**
+ * Define the services that can done for the user
+ * Request to this layer get DTOs as response
+ */
+
 package com.lib.app.service;
 
 import java.util.ArrayList;
@@ -27,6 +32,11 @@ public class UserDetailsService {
     private final StaffRepository staffRepository;
     private final StudentRepository studentRepository;
 
+    /**
+     * Retrieve a list of all Staff in the system
+     * @param None
+     * @return List<StaffResponse>
+     */
     public List<StaffResponse> getAllStaff(){
         List<Staff> query = staffRepository.findAll();
 
@@ -42,6 +52,11 @@ public class UserDetailsService {
         return response;
     }
 
+    /**
+     * Retrieve a list of all students in the system
+     * @param None
+     * @return  List<StudentResponse>
+     */
     public List<StudentResponse> getAllStudents(){
         List<Student> query = studentRepository.findAll();
 
@@ -55,7 +70,12 @@ public class UserDetailsService {
 
         return response;
     }
-    
+
+    /**
+     * Retrieve a staff member by their id
+     * @param id
+     * @return  StaffResponse
+     */
     public StaffResponse getStaffById(Long id){
         Optional<Staff> query = staffRepository.findById(id);
 
@@ -67,6 +87,11 @@ public class UserDetailsService {
                                 response.getRole(), response.getHiredOn());
     }
 
+    /**
+     * Retrive a student by their id
+     * @param id
+     * @return  StudentResponse
+     */
     public StudentResponse getStudentById(Long id){
         Optional<Student> query = studentRepository.findById(id);
 
@@ -78,6 +103,11 @@ public class UserDetailsService {
                                 response.getStatus(), response.getRegisteredOn());
     }
 
+    /**
+     * Create a new staff member or Update the details of an existing staff member
+     * @param request
+     * @return StaffResponse
+     */
     public StaffResponse createStaff(CreateStaffRequest request){
         Staff newStaff = new Staff();
 
@@ -98,6 +128,11 @@ public class UserDetailsService {
                                 savedStaff.getRole(), savedStaff.getHiredOn());
     }
 
+    /**
+     * Register a new Student into the system
+     * @param request
+     * @return StudentResponse
+     */
     public StudentResponse createStudent(RegisterStudentRequest request){
         Student newStudent = new Student();
 
