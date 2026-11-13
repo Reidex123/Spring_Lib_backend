@@ -53,6 +53,11 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<StudentResponse> register(@Valid @RequestBody RegisterStudentRequest request){
+        return null;
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<StudentResponse> deleteById(@PathVariable Long id){
         StudentResponse response = studentService.deleteStudentById(id);
